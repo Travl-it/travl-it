@@ -31,7 +31,7 @@ const BAppBar = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        News
+                        Travl-It
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>

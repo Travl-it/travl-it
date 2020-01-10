@@ -63,9 +63,10 @@ export const MapDisplayProvider = (props) => {
     })
       .then(res => res.json())
       .then(trip => {
+        let finalStops = trip;
         setMapDisplayState({
           ...mapDisplayState,
-          trip,
+          finalStops,
         });
       })
       .catch(err => {
@@ -73,18 +74,9 @@ export const MapDisplayProvider = (props) => {
       })
   };
 
-  const handleTagSubmit = () => {
-    const [searchTag, setSearchState, reset] = useInput('');
-    const savedTag = mapDisplayState.savedTag;
-    setMapDisplayState({
-      ...mapDisplayState,
-      savedTag,
-      searchTag
-    });
-  };
 
   return (
-    <MapDisplayContext.Provider value={{ setMapDisplayState, mapDisplayState, clickMarker, clickMap, handleTagSubmit }}>
+    <MapDisplayContext.Provider value={{ setMapDisplayState, mapDisplayState, clickMarker, clickMap }}>
       {props.children}
     </MapDisplayContext.Provider>
   )
