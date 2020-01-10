@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo, useContext} from 'react';
 import Map from "./Map";
 import MarkerForm from './MarkerForm.jsx'
 import {makeStyles} from '@material-ui/core/styles';
@@ -9,6 +9,10 @@ import TripDisplay from "./TripDisplay";
 import {BrowserRouter} from "react-router-dom";
 import {Switch} from 'react-router-dom'
 import {Route} from "react-router-dom";
+// import Fab from "@material-ui/core/Fab";
+// import FaceIcon from '@material-ui/icons/Face';
+// import DriveEtaIcon from '@material-ui/icons/DriveEta';
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -40,7 +44,12 @@ const MapDisplay = (props) => {
 
     return (
         <BrowserRouter>
-        <div>
+        <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+        >
             <div
                 style={mapHeight}
                 onClick={handleExpandClick}
@@ -54,21 +63,19 @@ const MapDisplay = (props) => {
             </div>
             <Switch>
                 <Route>
-                <Collapse
-                    in={expanded}
-                    timeout="auto"
-                    unmountOnExit
-                >
-                    <MarkerForm/>
-                </Collapse>
+                    <Collapse
+                        in={expanded}
+                        timeout="auto"
+                        unmountOnExit
+                    >
+                        <MarkerForm/>
+                    </Collapse>
                 </Route>
-                <Route
-                    path='/trip/*'
-                >
+                <Route>
                     <TripDisplay/>
                 </Route>
             </Switch>
-        </div>
+        </Grid>
         </BrowserRouter>
 )
 };
