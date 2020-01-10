@@ -30,6 +30,7 @@ const Map = (props) => {
       });
   }, []);
 
+
   return (
     <GoogleMap
       onClick={clickMap}
