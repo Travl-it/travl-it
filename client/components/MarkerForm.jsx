@@ -9,9 +9,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import TripDisplay from "./TripDisplay";
-import Link from "@material-ui/core/Link";
-
 const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(4),
@@ -59,10 +56,8 @@ const Form = (props) => {
             }
         });
         console.log('response for server for updating a marker',response);
-
     };
     const classes = useStyles();
-
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -99,7 +94,6 @@ const Form = (props) => {
                         label="Trip Description"
                         id="tripDescription"
                     />
-                    <Link to={TripDisplay}>
                     <Button
                         type="submit"
                         fullWidth
@@ -109,7 +103,6 @@ const Form = (props) => {
                     >
                             Create
                     </Button>
-                    </Link>
                 </form>
             </div>
         </Container>

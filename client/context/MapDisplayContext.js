@@ -28,6 +28,11 @@ export const MapDisplayProvider = (props) => {
   };
 
   const clickMap = (e) => {
+    let finalStops = [];
+    setMapDisplayState({
+      ...mapDisplayState,
+      finalStops
+    });
     const newTrip = {
       comments: [],
       stops: [
@@ -47,7 +52,7 @@ export const MapDisplayProvider = (props) => {
           coordinates: [e.latLng.lng(), e.latLng.lat()]
         }
       }
-    }
+    };
 
     fetch('/api/trips/create', {
       method: 'POST',

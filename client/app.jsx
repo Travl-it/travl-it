@@ -10,13 +10,19 @@ import style from './style.css'
 import { Animated } from 'react-animated-css';
 import { MapDisplayProvider} from "./context/MapDisplayContext";
 import { MapCollapseProvider} from "./context/MapCollapseContext";
-import { makeStyles } from '@material-ui/core/styles';
-import TripDisplay from "./components/TripDisplay";
+import BAppBar from './components/AppBar';
+
 //this one renders ya know the app.
 const App = (props) => {
    return (
     <div id="map">
       <MapDisplayProvider>
+          <BAppBar
+              color='primary'
+              position='fixed'
+          >
+              Hello
+          </BAppBar>
       {/* header / title */}
       {/* map display */}
           <MapCollapseProvider>

@@ -2,15 +2,8 @@ import { GoogleMap, Marker, withGoogleMap, withScriptjs } from "react-google-map
 import mapStyle from "../mapStyle";
 import React, { useContext, useEffect, useState } from "react";
 import { MapDisplayContext } from "../context/MapDisplayContext";
-
 //__________________________________________________
-import MarkerForm from './MarkerForm.jsx'
 
-import { makeStyles } from '@material-ui/core/styles';
-
-import Collapse from '@material-ui/core/Collapse';
-
-import { red } from '@material-ui/core/colors';
 
 //________________________________________________
 
@@ -35,15 +28,16 @@ const Map = (props) => {
       .catch(err => {
         console.log(`ERROR: Map useEffect Fetch ERROR: ${err}`);
       });
-  }, [mapDisplayState]);
+  }, []);
 
   return (
     <GoogleMap
       onClick={clickMap}
       defaultZoom={4}
       defaultCenter={{ lat: 39.82, lng: -98.57 }}
-      defaultOptions={{ styles: mapStyle }}
+      defaultOptions={{ styles: mapStyle, zoomControl: false, scaleControl: false, fullscreenControl: false, mapTypeControl: false, streetViewControl:false }}
     >
+
       {mapDisplayState.finalStops.map((stop, i) => (
         <Marker
           onClick={clickMarker}
